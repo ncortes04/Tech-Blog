@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+//this is the post route to craete a post
 router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
         res.status(400).json(err);
       } 
 });
-
+//this deletes a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.destroy({
@@ -34,7 +34,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//this is getting the post by id
 router.put('/:id', async (req, res) => {
   try {
     const postData = await Post.update(req.body,(
@@ -48,7 +48,6 @@ router.put('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-  // update a post by its `id` value
 });
 
 module.exports = router;  

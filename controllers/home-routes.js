@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
-
+//this is the ge route to get all the users
 router.get('/', async (req, res) => {
   try {
     const common = await Post.findAll({
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//this gets a user by an id
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -42,7 +42,7 @@ router.get('/post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//this gets the profile page and loads it to the user
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -62,7 +62,6 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-//Where should i direct it to?
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth');
 const { Comment } = require('../../models')
 
-
+//this is the post route to create a comments
 router.post('/', withAuth, async(req,res) =>{
     const commentData = await Comment.create({
       description: req.body.content,
