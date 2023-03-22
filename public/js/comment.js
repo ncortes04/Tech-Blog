@@ -8,7 +8,7 @@ console.log(description)
         window.location.toString().split('/').length - 1
     ];
     if (description) {
-        const response = await fetch('/api/comments', {
+        const response = await fetch('/users/comment', {
             method: 'POST',
             body: JSON.stringify({
                 description,

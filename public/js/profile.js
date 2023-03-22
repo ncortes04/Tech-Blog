@@ -8,7 +8,7 @@ const submitNewForm = async (event) => {
     const description = document.querySelector('#postDescription').value.trim();
   
     if ( name && description ) {
-      const response = await fetch(`/api/posts`, {
+      const response = await fetch(`/users/post`, {
         method: 'POST',
         body: JSON.stringify({ name, description}),
         headers: {
@@ -29,7 +29,7 @@ const submitNewForm = async (event) => {
     const description = document.querySelector('#postDescription').value.trim();
   
     if ( name && description ) {
-      const response = await fetch(`/api/posts`, {
+      const response = await fetch(`/posts`, {
         method: 'POST',
         body: JSON.stringify({ name, description}),
         headers: {

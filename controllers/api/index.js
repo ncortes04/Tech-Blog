@@ -10,8 +10,10 @@ const {
     deletePost,
     updatePost
 } = require('./postRoutes');
-const commentRoutes = require('./commentRoutes')
+const { addComment } = require('./commentRoutes')
 
+router.route('/comment').post(isAuth, addComment)
+router.route('/post').post(isAuth, createPost)
 router.route('/login').post(login)
 router.route('/signup').post(createUser);
 
