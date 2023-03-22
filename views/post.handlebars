@@ -1,0 +1,42 @@
+
+<div class="card text-center mt-5 shadow box">
+  <h2 class="text-info mt-3 font-weight-bold">{{name}}</h2>
+  <p class="px-3">{{description}}</p>
+</div>
+
+  <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h3>Leave a Comment:</h3>
+      
+          <form>
+    
+            <div class="mb-3">
+              <label for="descriptionInput" class="form-label">Comment:</label>
+              <textarea class="form-control" id="commentDescription" aria-label="With textarea"></textarea>
+               <button class="btn btn-primary" id="submitBtn">Submit</button>
+          </form>
+   </div>
+   <div class="card-text my-2">
+  {{#if post.comment}}
+  <strong class="mb-2">Comments</strong>
+
+  {{#each post.comment as |comment|}}
+  {{> comment-data}}
+  {{/each}}
+
+  {{else}}
+  <p>No comments yet, be the first!</p>
+  {{/if}}
+  </div>
+
+   {{#each renderPosts as |post| }}
+          <div class="card mb-3 col-sm-5">
+            <a class="card-title text-center"  href="/post/{{post.id}}"><h2>{{post.name}}</h2></a>
+            <div class="card-body bg-light mb-3">
+              <p class="card-text"> Description: {{post.comment.description}}</p>
+            </div>
+          </div>
+{{/each}}
+
+    <script src="/js/comment.js"></script>

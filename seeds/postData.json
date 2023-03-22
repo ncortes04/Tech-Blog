@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Why MVC is so important",
+        "description": "MVC is primarily used to separate an application into three main components: Model, View, and Controller.",
+        "user_id": 5
+    },
+    {
+        "name": "Authentication vs Authoritation",
+        "description": "Authentication verifies the identity of a user or service, and authorization determines their access rights.",
+        "user_id": 3
+    }
+]

@@ -1,0 +1,13 @@
+<!-- Loop over each object in the projects array -->
+ <div class="d-flex gap-20 m-2">
+{{#each renderPosts as |post| }}
+          <div class="card">
+            <a class="card-title  text-info text-left"  href="/post/{{post.id}}"><h2>{{post.name}}</h2></a>
+            <div class="card-body bg-success mb-3">
+              <p class="card-text"> Description: {{post.description}}</p>
+              <p class="card-text"><small class="text-muted">Posted by {{post.user.name}}</small></p>
+            </div>
+          </div>
+{{/each}}
+ </div>
+
