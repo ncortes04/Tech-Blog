@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Why MVC is so important",
+        "description": "MVC is primarily used to separate an application into three main components: Model, View, and Controller.",
+        "user_id": 5
+    },
+    {
+        "name": "Authentication vs Authoritation",
+        "description": "Authentication verifies the identity of a user or service, and authorization determines their access rights.",
+        "user_id": 3
+    },
+    {
+        "name": "A step-by-step guide to building a chatbot based on your own documents with GPT",
+        "description": "Chatting with ChatGPT is fun and informative — I’ve been chit-chatting with it for past time and exploring some new ideas to learn. But these are more casual use cases and the novelty can quickly wean off, especially when you realize that it can generate hallucinations.",
+        "user_id": 2
+    },
+    {
+        "name": "I played chess against ChatGPT-4 and lost!",
+        "description": "Last December, I played a few chess games against ChatGPT. These always ended the same way: ChatGPT would play an accurate opening, until it forgot where its pieces were and started playing illegal moves, with full confidence of course. The truth is, GPT-3 does not know how to play chess. Playing a game against it reveals its true nature as a stochastic parrot that merely produces a believable-sounding answer from its training set. I wrote in December:",
+        "user_id": 4
+    },
+    {
+        "name": "Kaiseki",
+        "description": "(Any views expressed in the below are the personal views of the author and should not form the basis for making investment decisions, nor be construed as a recommendation or advice to engage in investment transactions.)",
+        "user_id": 1
+    },
+    {
+        "name": "2023 South Side Servings: White Sox Announce New Food and Beverages",
+        "description": "From the team who brought the heat with slow-smoked and dry-rubbed wings from Smokehouse 101 and then cooled fans off with Rainbow Cone signatures and a refreshing Cinnamon Churro Milkshake, the Chicago White Sox are excited to announce new food options at the ballpark for the 2023 season.",
+        "user_id": 6
+    },
+    {
+        "name": "Ukraine War, 20 March 2023",
+        "description": "Reading different comments of the last days and weeks, it’s obvious that too many people have too much time, and everybody knows better, of course. ‘Instead’ of trying to find out what’s going on, there’s too much discourse on what and who is right, and what and who is wrong, and — especially — when and where is Ukrainian counteroffensive going to take place, and what is it",
+        "user_id": 3
+    }
+]

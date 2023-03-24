@@ -1,0 +1,184 @@
+.header-container {
+    height: 90dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(324deg, rgba(11,132,224,1) 34%, rgba(0,212,255,1) 100%);
+    z-index: -2;
+}
+.header-container::before {
+    content: '';
+    background: rgb(11,132,224);
+    background: linear-gradient(350deg, rgba(11,132,224,1) 34%, rgba(0,212,255,1) 100%);
+    width: 35%;
+    aspect-ratio: 1/1;
+    min-width: 300px;
+    left: -5%;
+    border-radius: 50%;
+    right:  -10%;
+    position: absolute;
+    z-index: -1
+}
+.header-container::after {
+    content: '';
+    background: rgb(11,132,224);
+    background: linear-gradient(324deg, rgba(11,132,224,1) 34%, rgba(0,212,255,1) 100%);
+    width: 30%;
+    aspect-ratio: 1/1;
+    min-width: 350px;
+    top: 5%;
+    border-radius: 50%;
+    right:  -5%;
+    position: absolute;
+    z-index: -1
+}
+.header-flex-split {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    z-index: 1;
+}
+.header-flex-left{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+    margin-left: 30px;
+}
+.header-title-div {
+    margin: 50px;
+    width: 70%;
+    text-align: left;
+}
+.header-title-div h2 {
+    font-size: 70px;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+}
+.header-description {
+    font-size: 25px;
+    color: rgb(207, 205, 205);
+}
+.header-flex-right{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coding-png {
+  width: 400px;
+  opacity: .8;
+  aspect-ratio: 1/1;
+}
+.trending {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:  inset 0px 11px 8px -10px
+}
+.trending-flex {
+  max-width: 1100px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+.trending-card {
+  min-width: 300px;
+  width: 28%;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  padding: 20px;
+}
+
+.trending-rank {
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  left: 5px;
+  font-size: 30px;
+  font-weight: 500;
+  color:  rgb(70, 68, 68);
+}
+.trending-card-right {
+  margin-left: 20px;
+}
+.trending-user-name {
+  font-weight: 500;
+}
+.trending-name {
+  font-weight: 700;
+  font-size: 20px;
+}
+.trending-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trending-card-date {
+  font-size: 14px;
+  color: rgb(97, 95, 95)
+}
+.trending-view-btn {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 10px;
+  padding: 0;
+  transition: all .3s ease-out;
+}
+.trending-view-btn:hover {
+  scale: 1.1;
+}
+@media screen and (max-width: 850px) {
+
+  /* HEADER */
+
+  .header-container {
+    height: fit-content;
+  }
+  .header-flex-split{
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .header-flex-left {
+      align-items: center;
+      justify-content: center;
+  }
+  .header-title-div {
+      text-align: center;
+  }
+
+  }
+  
+@media screen and (max-width: 500px) {
+  .header-title-div {
+    margin: 0px;
+    width: 100%;
+  }
+  .header-flex-left h2 {
+    text-align: start;
+    padding: 0;
+  }
+  .header-flex-left p {
+    text-align: left;
+    font-size: 18px;
+    margin: 10px;
+  }
+}

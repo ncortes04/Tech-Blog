@@ -1,0 +1,138 @@
+.individual-post-container {
+    display: flex;
+    justify-content: start;
+}
+.individual-upper {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 900px;
+    gap: 10px;
+}
+.input-container {
+    min-width: 400px;
+    max-width: 80%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid  rgb(221, 220, 220);
+}
+.input-container label{
+    font-size: 18px;
+    font-weight: 500;
+}
+.single-item-header {
+    font-size: 35px;
+    margin: 0px;
+}
+.card-user-name {
+    font-size: 40px;
+    margin: 0;
+}
+
+.input-container input {
+    border-radius: 5px;
+    border: none;
+    min-width: 60%;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 0 5px 1px rgb(221, 220, 220), inset 0 0 10px 1px rgba(221, 220, 220, 0.37);
+}
+.input-container button {
+    background-color: black;
+    border: none;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.425);
+    transition: transform .2s ease-out;
+    cursor: pointer;
+}
+.input-container button:hover {
+    transform: translateY(-2px);
+}
+.card-created-at {
+    color: rgb(97, 95, 95)
+}
+.individual-card-container {
+    min-width: 400px;
+    max-width: 80%;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+}
+.bottom-container {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-left: 1px solid  rgb(221, 220, 220);
+    background-color: #ffffff;
+}
+.bottom-container h2 {
+    padding-bottom: 10px;
+    border-bottom: 3px solid #CFCCD6;
+}
+
+.comment-card-container {
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid  rgb(221, 220, 220);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid rgb(221, 220, 220);
+}
+.comment-body {
+    display: flex;
+    flex-direction: column;
+    
+}
+.continue-reading {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(97, 95, 95)
+}
+.single-decription {
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 10px;
+}
+.comment-name {
+    font-size: 35px;
+    margin: 0px;
+    font-weight: 700;
+}
+.comment-description {
+    font-size: 18px;
+    color: black;
+    padding: 5px;
+    width: fit-content;
+}
+.comment-description span {
+    color: rgb(136, 135, 135);
+    font-size: 15px;
+}
+@media screen and (max-width: 1000px) {
+    .individual-post-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .bottom-container {
+        width: 90%;
+        border: none;
+    }
+}

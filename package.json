@@ -1,34 +1,18 @@
 {
-  "name": "data-deposits",
+  "name": "text-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "seed": "node seeds/seed.js"
+    "server": "cd server && nodemon server.js",
+    "client": "cd client && npm start",
+    "develop": "concurrently \"npm run client\"  \"npm run server\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hrzonca/data-deposits.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hrzonca/data-deposits/issues"
-  },
-  "homepage": "https://github.com/Hrzonca/data-deposits#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "connect-session-sequelize": "^7.1.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.17.1",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.3",
-    "mysql2": "^2.3.3",
-    "nodemon": "^2.0.21",
-    "path": "^0.12.7",
-    "sequelize": "^6.25.7"
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21"
   }
 }
