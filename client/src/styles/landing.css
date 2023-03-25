@@ -75,6 +75,7 @@
   width: 400px;
   opacity: .8;
   aspect-ratio: 1/1;
+  margin: 20px;
 }
 .trending {
   padding: 10px;

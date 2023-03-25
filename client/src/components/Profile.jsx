@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
 import '../styles/profile.css'
 import { createPost,deletePost } from '../utils/API'
+import AuthService from '../utils/auth'
 const Profile = ({myself}) => {
-  console.log(myself)
+
   const [addPostForm, setAddPostForm] = useState({ name: '', description: ''});
   const [selectedCategory, setselectedCategory] = useState(null)
+  if(!AuthService .loggedIn()){
+    return window.location.assign('/')
+  }
   function currentTime(date){
     const options = { year: "numeric", month: "long", day: "numeric"}
     return new Date(date).toLocaleDateString(undefined, options)
@@ -52,7 +56,7 @@ const Profile = ({myself}) => {
                             <p>{myself.name}</p>
                             <p className="trending-card-date">-{currentTime(post.createdAt)}</p>
                             <a className="trending-view-btn" href={`/post?id=${post.id}`}>View Post</a>
-                            <button  onClick={() => {deletePost({id: post.id})}} class="noselect"><span class="text delete-post-btn">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                            <button  onClick={() => {deletePost({id: post.id})}} class="noselect delete-btn"><span class="text delete-post-btn">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
                             </div>
                     </div>
                 </div>)

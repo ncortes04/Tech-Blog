@@ -11,6 +11,7 @@ import { getSingle } from './utils/API'
 import Singleposts from './components/Singleposts';
 import Landing from './components/Landing';
 import { getPostData } from "./utils/API";
+import ViewProfile from './components/ViewProfile';
 function App() {  
   const [userData, setUserData] = useState({});
   const [itemData, setItemData] = useState({items: {}, trending: {}});
@@ -55,8 +56,8 @@ function App() {
     <Router>
          <Nav/>
          <Routes>
-            <Route path='/' element={<Landing trending={itemData.trending}/>}/>
-            <Route path='/main'  element={ <Main name={userData.name} posts={itemData}/>}/>
+            <Route path='/' element={<Landing trending={itemData.trending} posts={itemData.items}/>}/>
+            <Route path='/viewprofile' element={<ViewProfile />} />
             <Route path='/profile'  element={ <Profile myself={userData}/>}/>
             <Route path='post' element={<Singleposts myself={userData.id}trending={itemData.trending}/>}/>
             <Route path='/login' element={<Login/>}/>

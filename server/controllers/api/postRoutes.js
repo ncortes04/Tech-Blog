@@ -4,10 +4,9 @@ const { Post, User } = require('../../models');
 module.exports = {
   async createPost({ body, user = null, params}, res) {
     try {
-      const foundUser = await User.findOne({ where: { email: user.email } })
       const newPost = await Post.create({
           ...body,
-          user_id: foundUser.id,
+          user_id: user.id,
       });
   
       res.status(200).json(newPost);
@@ -19,15 +18,11 @@ module.exports = {
   //this deletes a post
   async deletePost({ body, user = null, params} , res) {
     try {
-      const foundUser = await User.findOne({ where: { email: user.email } })
-      if (!foundUser) {
-        res.status(404).json({ message: 'No user found with this id!' });
-        return;
-      }
 
       const userData = await Post.destroy({
         where: {
           id: body.id,
+          user_id: user.id
         },
       });
       
@@ -42,7 +37,7 @@ module.exports = {
         {
           where: {
             id: req.params.id
-          },
+          }
         })
       )
       res.status(200).json(postData)

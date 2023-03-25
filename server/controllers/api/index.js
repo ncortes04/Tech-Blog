@@ -12,8 +12,7 @@ const {
 } = require('./postRoutes');
 const { addComment,deleteComment } = require('./commentRoutes')
 
-// router.route('/comment').post(isAuth, addComment)
-// router.route('/post').post(isAuth, createPost)
+
 router.route('/login').post(login)
 router.route('/signup').post(createUser);
 router.route('/comment').post(authMiddleware, addComment).delete(authMiddleware, deleteComment);

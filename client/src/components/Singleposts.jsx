@@ -13,17 +13,17 @@ const Singleposts = ({trending, myself}) => {
         setaddComment({ ...addCommentForm, [name]: value, id: id });
     };
     const [loading, setLoading] = useState(true)
-    console.log(comments)
+    const getItems = async () => {
+      setLoading(true)
+      const response = await getIndividual(id);
+
+      const item = await response.json();
+      await setComments(item.comments)
+      setsingleItem(item);
+      setLoading(false)
+  };
     useEffect(() => {
-      const getItems = async () => {
-          setLoading(true)
-          const response = await getIndividual(id);
-  
-          const item = await response.json();
-          setComments(item.comments)
-          setsingleItem(item);
-          setLoading(false)
-      };
+
       getItems();
     }, [id]);
     function currentTime(date){
@@ -31,18 +31,15 @@ const Singleposts = ({trending, myself}) => {
         return new Date(date).toLocaleDateString(undefined, options)
     }
     const handleSubmit = async (event) => {
-        event.preventDefault()
 
     try {
-      
      const response = await addComment(addCommentForm);
-
-      if (!response.ok) {
+     const data = await response.json()
+      getItems()
+     if (!response.ok) {
         throw new Error('something went wrong!');
       }
-      comments.push(await response.json())
-
-       console.log(await response.json());
+      
     } catch (err) {
       console.error(err);
     }
@@ -64,7 +61,10 @@ const Singleposts = ({trending, myself}) => {
     }
   };
   const handleProfileVisit = async (userId) => {
-
+    if(userId === myself){
+      return window.location.assign(`/profile`)
+    }
+    return window.location.assign(`/viewprofile?id=${userId}`)
   }
   console.log(comments)
   return (
@@ -76,7 +76,8 @@ const Singleposts = ({trending, myself}) => {
                     <div className='card-body'>
                         <div className='individual-card-header'>
                             <p className='card-user-name'>By: {singleItem.user.name}</p>
-                            <button className='view-profile' href='profile/'>View Profile</button>
+                            <button className='view-profile-btn' 
+                            onClick={() => {handleProfileVisit(singleItem.user_id)}}>View Profile</button>
                         </div>
                         <p className='card-created-at'>{currentTime(singleItem.createdAt)}</p>
                         <h3 className='single-item-header'>{singleItem.name}</h3>
@@ -92,7 +93,9 @@ const Singleposts = ({trending, myself}) => {
                 <div className="trending-card">
                      <p className="trending-rank">0{index + 1}</p>
                     <div className="trending-card-right">
-                        <p className="trending-user-name">By {post.user.name}</p>
+                        <p className="trending-user-name"><button 
+                        onClick={() => {handleProfileVisit(post.user.id)}}
+                        className='view-profile-btn'>{post.user.name}</button></p>
                         <p className="trending-name"> {post.name}</p>
                         <div className="trending-card-bottom">
                                 <p className="trending-card-date">-{currentTime(post.createdAt)}</p>
@@ -130,12 +133,13 @@ const Singleposts = ({trending, myself}) => {
                     return(<div className='comment-border'> 
                         <div className='comment-card-container'>
                             <div className='comment-body'>
-                                <p className='comment-name'>{singleItem.user.name}</p>
+                                <button className='comment-name' 
+                                onClick={() => {handleProfileVisit(comment.user.id)}}>{comment.user.name}</button>
                                 <p className='comment-description'>{comment.description} <span>-{currentTime(comment.createdAt)}</span></p>
                             </div>
                             {myself === comment.user_id 
-                            ? <button onClick={() => {handleDeleteComment({id: comment.id})}} class="noselect"><span class="text delete-post-btn">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
-                            :null
+                            ? <button onClick={() => {handleDeleteComment({id: comment.id})}} className="noselect delete-btn"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                            : null
                         }
                         </div>
                     </div>)

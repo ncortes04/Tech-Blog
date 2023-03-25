@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Tech Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+A full stack Blog application with user authentication and authorization. This project allows users to communicate about tech. Users can comment, view others profiles, create comments, delete comments, view their own profile, create posts, and delete posts.
 
-## Available Scripts
+## Installation
+This site is not currently accessable but i plan on deploying it soon. For now the source code is available on my github.
 
-In the project directory, you can run:
+## Usage
+To use this appplication without it being deployed you must first initialize a connection. This Project uses MySQL. 
 
-### `npm start`
+## Technologies
+- Bcrypt
+- Express
+- React
+- JWT
+- Sequelize
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Landing view
+![Alt text](./readme-ss/Landing.png?raw=true)
+- Users are Greeted with a landing page nad have a choice to login
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Main view
+![Alt text](./readme-ss/Main.png?raw=true)
+- A user can scroll down and be greeted with the top 6 trending posts followed by recent posts
+## Login view
+![Alt text](./readme-ss/Login.png?raw=true)
+- Upon pressing login the User can anter an email and password or signup
 
-### `npm test`
+## My Profile view
+![Alt text](./readme-ss/MyProfile.png?raw=true)
+- A user can view their own profile in which they can create and delete theri posts 
+## Single view
+![Alt text](./readme-ss/Single.png?raw=true)
+- Upon pressing view post the user is directed to a page with that post and its description. This is followed by the current top 6 most popular articles.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## View Profile
+![Alt text](./readme-ss/ViewProfile.png?raw=true)
+- A user can view anothers profile by pressing view profile or clicking on their name in the comments. This will link them to that users posts.
 
-### `npm run build`
+## How it Works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When the user registers the server recieves this input via express. This username is checked if it doesnt already exists in the database. The password is encrypted using bcrypt and stored in the database. When a user signs in the sam process occurs but bcrypt.compare is used to check the password in constant time. When succesfully logged in a Token is returned and stored in the local storage (Yes this is not a good idea for a few reasons.). Between every request the user makes the server checks if their JWT is still valid and if they are who they say they are. Even if a user made a request to the servertrying to delete a comment that isnt theirs they are unable to. This is due to the middleware that decrypts the token with the secret and checks if they have access to delete this post or comment.

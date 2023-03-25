@@ -92,6 +92,7 @@
     flex-direction: column;
     background-color: #ffffff;
     border: 1px solid rgb(221, 220, 220);
+    min-width: 700px;
 }
 .comment-body {
     display: flex;
@@ -112,6 +113,10 @@
     border-radius: 10px;
 }
 .comment-name {
+    all:unset;
+    cursor: pointer;
+    padding: 0;
+    border: none;
     font-size: 35px;
     margin: 0px;
     font-weight: 700;
@@ -125,6 +130,17 @@
 .comment-description span {
     color: rgb(136, 135, 135);
     font-size: 15px;
+}
+.view-profile-btn {
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    color: hsl(206,100%,40%);
+}
+.view-profile-btn:hover {
+    color: hsl(207, 34%, 64%);
 }
 @media screen and (max-width: 1000px) {
     .individual-post-container {

@@ -2,11 +2,10 @@ const { Comment, User } = require('../../models')
 
 module.exports = {
   async addComment({ body, user = null, params}, res){
-    const foundUser = await User.findOne({ where: { email: user.email } })
-    try {
+   try {
       const commentData = await Comment.create({
         description: body.description,
-        user_id: foundUser.id,
+        user_id: user.id,
         post_id: body.id,
       })
       res.json(commentData);
@@ -25,6 +24,7 @@ module.exports = {
       const commentData = await Comment.destroy({
         where: {
           id: body.id,
+          user_id: foundUser.id
         },
       });
       

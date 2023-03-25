@@ -38,6 +38,13 @@ export const getIndividual = async (id) => {
   },
 });
 }
+export const viewProfile = async (id) => {
+  return await fetch(`/posts/viewprofile${id}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json',
+  },
+});
+}
 export const deletePost = async (id) => {
   return await fetch(`/users/deletepost`, {
     method: 'DELETE',

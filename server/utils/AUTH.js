@@ -26,8 +26,8 @@ module.exports = {
         next();
 
     },
-    async signToken({_id, username, password, email, role}){
-        const payload = {_id, username, password, email, role}
+    async signToken({id, name, password, email}){
+        const payload = {id, name, password, email}
         return await jwt.sign({data: payload}, 'secret')
     }
 }

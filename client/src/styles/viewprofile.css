@@ -1,0 +1,14 @@
+.view-profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.view-profile-list { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}

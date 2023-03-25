@@ -8,7 +8,7 @@ module.exports = {
         include: [
           {
             model: User,
-            attributes: ['name']
+            attributes: ['name', 'id']
           },
           {
             model: Comment
@@ -26,7 +26,7 @@ module.exports = {
         include:[
           {model: Comment,
               include:[{model: User,
-                attributes: ['name']
+                attributes: ['name', 'id']
               }]
           },{
             model: User,
@@ -36,6 +36,19 @@ module.exports = {
       const post = postData.get({ plain: true });
       
       res.status(200).json(post)
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  async viewProfile(req, res) {
+    console.log(req)
+    try {
+      const profileData = await User.findByPk(req.params.id, {attributes: ['name'],
+        include:[
+          {model: Post,}]
+      });
+      
+      res.status(200).json(profileData)
     } catch (err) {
       res.status(500).json(err);
     }

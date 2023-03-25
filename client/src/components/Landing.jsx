@@ -1,11 +1,14 @@
 import React from "react";
 import '../styles/landing.css'
-function Landing({trending}) {
+import Main from "./main";
+import blogSvg from '../assets/blog-svgrepo-com.svg'
+
+function Landing({trending, posts}) {
     function currentTime(date){
         const options = { year: "numeric", month: "long", day: "numeric"}
         return new Date(date).toLocaleDateString(undefined, options)
     }
-    console.log(trending)
+    console.log(posts)
     return(
         <>
             <header className='header-container'>
@@ -18,7 +21,8 @@ function Landing({trending}) {
                     </div>
                 </div>
                 <div className='header-flex-right'>
-                    <img className='coding-png' alt='coding person sitting at the table just coding'/>
+                    
+                    <img className='coding-png' src={blogSvg} alt='coding person sitting at the table just coding'/>
                 </div>
             </div>
         </header>
@@ -41,7 +45,11 @@ function Landing({trending}) {
               })}
             </div>
         </div>
+        <div>
+            <Main posts={posts}/>
+        </div>
         </>
+        
     )
 }
 
