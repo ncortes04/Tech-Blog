@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/landing.css'
-import Main from "./main";
 import blogSvg from '../assets/blog-svgrepo-com.svg'
 
 function Landing({trending, posts}) {
@@ -8,7 +7,6 @@ function Landing({trending, posts}) {
         const options = { year: "numeric", month: "long", day: "numeric"}
         return new Date(date).toLocaleDateString(undefined, options)
     }
-    console.log(posts)
     return(
         <>
             <header className='header-container'>
@@ -16,8 +14,8 @@ function Landing({trending, posts}) {
                 <div className='header-flex-left'>
                     <div className='header-title-div'>
                         <h2>Every Developer needs a resource</h2>
-                        <p className='header-description'>Welcome to the cortes tech blog. This blog is filled with a community of coders.
-                        We provide a free service in which people can ask question and interact with theri fellow coding community</p>
+                        <p className='header-description'>Welcome to the Techy tech blog. This blog is filled with a community of coders.
+                        We provide a free service in which people can ask question and interact with their fellow coding community</p>
                     </div>
                 </div>
                 <div className='header-flex-right'>
@@ -31,7 +29,7 @@ function Landing({trending, posts}) {
             <div className="trending-flex">
             {trending.length && trending.slice(0, 6).map((post, index) => {
                 return(
-                <div className="trending-card">
+                <div key={post.id} className="trending-card">
                      <p className="trending-rank">0{index + 1}</p>
                     <div className="trending-card-right">
                         <p className="trending-user-name">By {post.user.name}</p>
@@ -46,7 +44,27 @@ function Landing({trending, posts}) {
             </div>
         </div>
         <div>
-            <Main posts={posts}/>
+        <div className='main-container'>
+      <div className='flex-container'>
+      {posts.length ? posts.map(post => {
+              return(
+                <>
+                {post.user ? 
+                <div key={post.id} className="main-card">
+                    <div className="profile-card-body">
+                        <p className="profile-name"> {post.name}</p>
+                        <div className="profile-card-bottom">
+                            <p>{post.user.name}</p>
+                            <p className="trending-card-date">-{currentTime(post.createdAt)}</p>
+                            <a className="trending-view-btn" href={`/post?id=${post.id}`}>View Post</a>
+                            </div>
+                    </div>
+                </div>: null}
+                </>)
+              })
+            : <p>No Posts Found</p>}
+      </div>
+    </div>
         </div>
         </>
         

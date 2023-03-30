@@ -66,7 +66,6 @@ const Singleposts = ({trending, myself}) => {
     }
     return window.location.assign(`/viewprofile?id=${userId}`)
   }
-  console.log(comments)
   return (
     <div className='individual-post-container'>
         {!loading
@@ -90,7 +89,7 @@ const Singleposts = ({trending, myself}) => {
             <div className="trending-flex">
             {trending.length && trending.slice(0, 6).map((post, index) => {
                 return(
-                <div className="trending-card">
+                <div key={post.id} className="trending-card">
                      <p className="trending-rank">0{index + 1}</p>
                     <div className="trending-card-right">
                         <p className="trending-user-name"><button 
@@ -130,7 +129,7 @@ const Singleposts = ({trending, myself}) => {
                         }
                 </div>
                     {comments.length ? comments.map(comment => {
-                    return(<div className='comment-border'> 
+                    return(<div key={comment.id} className='comment-border'> 
                         <div className='comment-card-container'>
                             <div className='comment-body'>
                                 <button className='comment-name' 

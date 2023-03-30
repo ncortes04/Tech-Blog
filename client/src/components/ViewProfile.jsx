@@ -25,7 +25,6 @@ function ViewProfile() {
   
         getUserProfile();
       }, [id]);
-      console.log(userProfile)
   return (
     <div className='view-profile-container'>
         <div className='profile-name-container'>
@@ -35,7 +34,7 @@ function ViewProfile() {
           {userProfile.Posts 
             ? userProfile.Posts.map(post => {
               return(
-                <div className="profile-card">
+                <div key={post.id} className="profile-card">
                     <div className="profile-card-body">
                         <p className="profile-name"> {post.name}</p>
                         <div className="profile-card-bottom">

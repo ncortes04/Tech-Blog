@@ -35,7 +35,6 @@ module.exports = {
       }
   
       const token = await signToken(userData)
-      console.log(userData)
       res.status(200).json({token})
 
     } catch (err) {

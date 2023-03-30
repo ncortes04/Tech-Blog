@@ -47,9 +47,9 @@ const Profile = ({myself}) => {
           <p className='profile-my-posts'>My Posts</p>
           <div className='posts-list-container'>
           {myself.Posts 
-            ? myself.Posts.map(post => {
+            && myself.Posts.map(post => {
               return(
-                <div className="profile-card">
+                <div key={post.id} className="profile-card">
                     <div className="profile-card-body">
                         <p className="profile-name"> {post.name}</p>
                         <div className="profile-card-bottom">
@@ -61,7 +61,7 @@ const Profile = ({myself}) => {
                     </div>
                 </div>)
               })
-            :<p>loading...</p> }
+}
           </div>
         </div>
       </div>

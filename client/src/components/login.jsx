@@ -29,7 +29,6 @@ function Login(){
               }
         
               const { token, foundUser } = await response.json();
-              console.log(foundUser);
               authService.login(token);
             } catch (err) {
               console.error(err);

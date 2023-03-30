@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import Nav from './components/nav';
-import Main from './components/main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import authService from './utils/auth'
 import { useState, useEffect } from 'react';
@@ -59,7 +58,7 @@ function App() {
             <Route path='/' element={<Landing trending={itemData.trending} posts={itemData.items}/>}/>
             <Route path='/viewprofile' element={<ViewProfile />} />
             <Route path='/profile'  element={ <Profile myself={userData}/>}/>
-            <Route path='post' element={<Singleposts myself={userData.id}trending={itemData.trending}/>}/>
+            <Route path='post' element={<Singleposts myself={userData.id} trending={itemData.trending}/>}/>
             <Route path='/login' element={<Login/>}/>
          </Routes>
     </Router>

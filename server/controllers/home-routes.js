@@ -41,7 +41,6 @@ module.exports = {
     }
   },
   async viewProfile(req, res) {
-    console.log(req)
     try {
       const profileData = await User.findByPk(req.params.id, {attributes: ['name'],
         include:[
