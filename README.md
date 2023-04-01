@@ -8,6 +8,11 @@ This site is not currently accessable but i plan on deploying it soon. For now t
 
 ## Usage
 To use this appplication without it being deployed you must first initialize a connection. This Project uses MySQL. 
+## Future Developments
+- A profile picture with a desription of the user
+- Ability to like and share posts
+- Ability to choose headers and subtexts within the posts
+- Being able to display images in post
 
 ## Technologies
 - Bcrypt
